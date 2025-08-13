@@ -41,23 +41,42 @@ local Window = Rayfield:CreateWindow({
 
 local MainTab = Window:CreateTab("Home", nil) -- Title, Image
 local HomeSection = MainTab:CreateSection("Main")
+local player = game.Players.LocalPlayer.Character.Humanoid
 
 
 
-local Toggle = Tab:CreateToggle({
-    Name = "Speed 50 Toggle",
-    CurrentValue = false,
-    Flag = "SpeedToggle",
+local Button = MainTab:CreateButton({
+    Name = "Laju Standard",
     Callback = function()
-        local player = game.Players.LocalPlayer
-        local character = player.Character or player.CharacterAdded:Wait()
-        local humanoid = character:FindFirstChildOfClass("Humanoid")
-
-        if humanoid then
-            humanoid.WalkSpeed = 50
-        end
+        player.WalkSpeed = 16
     end,
 })
 
+local Button = MainTab:CreateButton({
+    Name = "Laju Ferrari",
+    Callback = function()
+        player.WalkSpeed = 50
+    end,
+})
+
+local Toggle = MainTab:CreateToggle({
+    Name = "Speed 100 Toggle",
+    CurrentValue = false,
+    Flag = "SpeedToggle",
+    Callback = function()
+        player.WalkSpeed = 100
+    end,
+})
+
+local Input = MainTab:CreateInput({
+   Name = "Input Kelajuan",
+   CurrentValue = "",
+   PlaceholderText = "Input Placeholder",
+   RemoveTextAfterFocusLost = false,
+   Flag = "inputKelajuan",
+   Callback = function(Text)
+    player.WalkSpeed = (Text)
+   end,
+})
 
 
