@@ -42,9 +42,16 @@ local Window = Rayfield:CreateWindow({
 local HomeTab = Window:CreateTab("Home Tab", 4483362458) -- Title, Image
 local HomeSection = Tab:CreateSection("Main")
 
-Rayfield:Notify({
-   Title = "Script Successfully Loaded",
-   Content = "Congratulations! script has been successfully loaded.",
-   Duration = 6.5,
-   Image = 4483362458,
+local Button = Tab:CreateButton({
+    Name = "Laju 50",
+    Callback = function()
+        local player = game.Players.LocalPlayer
+        local character = player.Character or player.CharacterAdded:Wait()
+        local humanoid = character:FindFirstChildOfClass("Humanoid")
+
+        if humanoid then
+            humanoid.WalkSpeed = 50
+        end
+    end,
 })
+
