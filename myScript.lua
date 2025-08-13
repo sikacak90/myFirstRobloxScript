@@ -39,8 +39,7 @@ local Window = Rayfield:CreateWindow({
 
 
 
-local HomeTab = Window:CreateTab("Home Tab", 4483362458) -- Title, Image
-local HomeSection = Tab:CreateSection("Main")
+
 
 local Button = Tab:CreateButton({
     Name = "Laju 50",
