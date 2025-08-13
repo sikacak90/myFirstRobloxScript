@@ -42,8 +42,7 @@ local Window = Rayfield:CreateWindow({
 local MainTab = Window:CreateTab("Home", nil) -- Title, Image
 local HomeSection = MainTab:CreateSection("Main")
 
-local normalSpeed = 16
-local fastSpeed = 50
+
 
 local Toggle = Tab:CreateToggle({
     Name = "Speed 50 Toggle",
@@ -55,13 +54,7 @@ local Toggle = Tab:CreateToggle({
         local humanoid = character:FindFirstChildOfClass("Humanoid")
 
         if humanoid then
-            if Value then
-                humanoid.WalkSpeed = fastSpeed
-                print("Speed 50 ON")
-            else
-                humanoid.WalkSpeed = normalSpeed
-                print("Speed 50 OFF")
-            end
+            humanoid.WalkSpeed = 50
         end
     end,
 })
