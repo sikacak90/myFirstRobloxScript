@@ -39,9 +39,10 @@ local Window = Rayfield:CreateWindow({
 
 
 
+local HomeTab = Window:CreateTab("Home Tab", 4483362458) -- Title, Image
+local HomeSection = MainTab:CreateSection("Main")
 
-
-local Button = Tab:CreateButton({
+local Button = MainTab:CreateButton({
     Name = "Laju 50",
     Callback = function()
         local player = game.Players.LocalPlayer
