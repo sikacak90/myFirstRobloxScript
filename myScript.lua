@@ -42,16 +42,25 @@ local Window = Rayfield:CreateWindow({
 local MainTab = Window:CreateTab("Home", nil) -- Title, Image
 local HomeSection = MainTab:CreateSection("Main")
 
-local Button = MainTab:CreateButton({
-    Name = "Laju 50",
-    Callback = function()
+local Toggle = Maintab:CreateToggle({
+    Name = "Kelajuan Jalan Kaki",
+    CurrentValue = false,
+    Flag = "SpeedToggle",
+    Callback = function(Value)
         local player = game.Players.LocalPlayer
         local character = player.Character or player.CharacterAdded:Wait()
         local humanoid = character:FindFirstChildOfClass("Humanoid")
 
         if humanoid then
-            humanoid.WalkSpeed = 50
+            if Value then
+                humanoid.WalkSpeed = 50
+                print("Speed 50 ON")
+            else
+                humanoid.WalkSpeed = 16
+                print("Speed 50 OFF")
+            end
         end
     end,
 })
+
 
